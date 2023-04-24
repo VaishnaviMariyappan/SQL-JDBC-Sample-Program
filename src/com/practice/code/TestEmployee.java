@@ -1,6 +1,7 @@
 package com.practice.code;
 
 import java.sql.Connection;
+
 import java.util.Scanner;
 import java.sql.SQLException;
 public class TestEmployee
@@ -31,8 +32,8 @@ public class TestEmployee
 		//emp1.employeefindByDepartment(s1);
 		
 		Scanner sc3 = new Scanner(System.in);
-		System.out.println("Enter the Employee Salary:");
-		int salary = sc3.nextInt();
-		emp1.employeefindBySalary(salary);
-		}
+		System.out.println("Enter the Employee Department:");
+		String s2 = sc3.nextLine();
+		emp1.employeefindByDepartment(s2);
+	}
 	}

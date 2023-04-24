@@ -1,14 +1,17 @@
 package com.practice.code;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 class EmployeeImpl implements Employee {
-	public static Connection getConnection() throws ClassNotFoundException, SQLException {
+	public static Connection getConnection() throws ClassNotFoundException, SQLException
+	{
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/employeedatabase", "root",
 				"Vais@123");
@@ -16,7 +19,8 @@ class EmployeeImpl implements Employee {
 		return con;
 	}
 
-	public void saveEmployee() throws ClassNotFoundException, SQLException {
+	public void saveEmployee() throws ClassNotFoundException, SQLException 
+	{
 		Connection con = EmployeeImpl.getConnection();
 		String s1 = "INSERT INTO employeedetails VALUES(9,'Shanthini',28,'Lawyer',25000)";
 		PreparedStatement ps = con.prepareStatement(s1);
@@ -79,7 +83,7 @@ System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getStrin
 	System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t"
 						+ rs.getString(4) + "\t" + rs.getString(5));
 			}
-
+                          
 		}
 		
 		public void employeefindByDepartment(String department) throws ClassNotFoundException, SQLException
@@ -94,18 +98,19 @@ System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getStrin
 						+ rs.getString(4) + "\t" + rs.getString(5));
 			}
 		}
-		public void employeefindBySalary(int salary) throws ClassNotFoundException, SQLException
+		public void employeefindBySalary(String salary) throws ClassNotFoundException, SQLException
 
 		{
 			Connection con = EmployeeImpl.getConnection();
 			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery("Select *from employeedetails where empSalary = '"+salary+"'");
+			ResultSet rs = st.executeQuery("Select *from employeedetails where empDepartment = '"+salary+"'");
 			while (rs.next())
 			{
 	System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t"
 						+ rs.getString(4) + "\t" + rs.getString(5));
 			}
 		}
+
 		
 }
 

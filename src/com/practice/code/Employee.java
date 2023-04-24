@@ -12,6 +12,5 @@ public void employeeList()throws ClassNotFoundException, SQLException;
 public void employeefindById(int id)throws ClassNotFoundException,SQLException;
 public void employeefindByName(String name)throws ClassNotFoundException,SQLException;
 public void employeefindByDepartment(String department)throws ClassNotFoundException,SQLException;
-public void employeefindBySalary(int salary)throws ClassNotFoundException,SQLException;
-
+public void employeefindBySalary(String salary) throws ClassNotFoundException,SQLException;
 }
